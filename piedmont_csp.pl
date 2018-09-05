@@ -1,33 +1,31 @@
 /*
 ** Facts
 */
-	colore(blu).
-	colore(celeste).
-	colore(verde).
-	colore(rosa).
-	colore(giallo).
-	colore(arancione).
-	colore(viola).
-	colore(rosso).
+	color(blue).
+	color(paleBlue).
+	color(green).
+	color(pink).
+	color(yellow).
+	color(orange).
+	color(violet).
+	color(red).
 
 /*
 ** Rules
 */
-	vicino(ColoreProvinciaA, ColoreProvinciaB) :- 
-		colore(ColoreProvinciaA), colore(ColoreProvinciaB), 
-		ColoreProvinciaA \= ColoreProvinciaB.
+	neighbour(ColorProvinceA, ColorProvinceB) :-
+		color(ColorProvinceA), color(ColorProvinceB),
+		ColorProvinceA \= ColorProvinceB.
 
 /*
 ** Topology
 */
-	piemonte(VB, VC, B, N, TO, AS, AL, CN) :-
-		vicino(VB, VC), vicino(VB, N),
-		vicino(VC, VB), vicino(VC, B), vicino(VC, N), vicino(VC, TO), vicino(VC, AL),
-		vicino(B, VC), vicino(B, TO),
-		vicino(N, VB), vicino(N, VC),
-		vicino(TO, B), vicino(TO, VC), vicino(TO, AL), vicino(TO, AS), vicino(TO, CN),
-		vicino(AL, VC), vicino(AL, TO), vicino(AL, AS), vicino(AL, CN),
-		vicino(AS, TO), vicino(AS, AL), vicino(AS, CN),
-		vicino(CN, TO), vicino(CN, AS), vicino(CN, AL).
-
-
+	piedmont(VB, VC, B, N, TO, AS, AL, CN) :-
+		neighbour(VB, VC), neighbour(VB, N),
+		neighbour(VC, VB), neighbour(VC, B), neighbour(VC, N), neighbour(VC, TO), neighbour(VC, AL),
+		neighbour(B, VC), neighbour(B, TO),
+		neighbour(N, VB), neighbour(N, VC),
+		neighbour(TO, B), neighbour(TO, VC), neighbour(TO, AL), neighbour(TO, AS), neighbour(TO, CN),
+		neighbour(AL, VC), neighbour(AL, TO), neighbour(AL, AS), neighbour(AL, CN),
+		neighbour(AS, TO), neighbour(AS, AL), neighbour(AS, CN),
+		neighbour(CN, TO), neighbour(CN, AS), neighbour(CN, AL).
